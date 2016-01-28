@@ -1,5 +1,6 @@
 package bathon.michael.initlab01;
 
+
 import org.junit.Before;
 import org.junit.Test;
 import static org.junit.Assert.*;
@@ -12,13 +13,13 @@ public class SpecInitializationLab1 {
     ColorfulThing testColor;
 
     @Before
-    public void setUp(){testColor = new ColorfulThing("blue");}
+    public void setUp(){testColor = new ColorfulThing(ColorfulThing.ColorEnum.BLUE);}
 
-    String colorExpected = "blue";
+    ColorfulThing.ColorEnum testEnum = ColorfulThing.ColorEnum.BLUE;
 
     @Test
     public void testGetColor(){
-        assertEquals(colorExpected, testColor.getColor());
+        assertEquals(testEnum, testColor.getColor());
     }
 
 

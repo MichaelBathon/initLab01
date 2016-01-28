@@ -7,24 +7,20 @@ public class InitializationLab1 {
 
     public static void main(String[] args) {
 
-     ColorfulThing ctRed = new ColorfulThing("red");
-        ColorfulThing ctBlue = new ColorfulThing("blue");
-        ColorfulThing ctGreen = new ColorfulThing("green");
-        ColorfulThing ctYellow = new ColorfulThing("yellow");
-        ColorfulThing ctOrange = new ColorfulThing("orange");
-       // ColorfulThing purple = new ColorfulThing(); test no arg constructor causes error
+        //Testing Enum
 
-        BoringThing boring1 = new BoringThing();
-        BoringThing boring2 = new BoringThing();
-        BoringThing boring3 = new BoringThing();
-        BoringThing boring4 = new BoringThing();
-        BoringThing boring5 = new BoringThing();
+        ColorfulThing ctEnumRed = new ColorfulThing(ColorfulThing.ColorEnum.RED);
+        ColorfulThing ctEnumBlue = new ColorfulThing(ColorfulThing.ColorEnum.BLUE);
+        ColorfulThing ctEnumGreen = new ColorfulThing(ColorfulThing.ColorEnum.GREEN);
 
-        System.out.println(ctRed.getColor());
-        System.out.println(ctBlue.getColor());
-        System.out.println(ctGreen.getColor());
-        System.out.println(ctYellow.getColor());
-        System.out.println(ctOrange.getColor());
+        /*Won't allow
+        ColorfulThing yellow = new ColorfulThing(ColorfulThing.Color.YELLOW);
+        ColorfulThing orange = new ColorfulThing(ColorfulThing.Color.ORANGE); */
+
+
+        System.out.println(ctEnumRed.getColor());
+        System.out.println(ctEnumBlue.getColor());
+        System.out.println(ctEnumGreen.getColor());
 
 
     }
@@ -32,15 +28,18 @@ public class InitializationLab1 {
 
 class ColorfulThing{
 
-    private String color; //variable for first constructor
 
-    ColorfulThing(String color) {
-        this.color = color;
-    } //Constructor for part 1 of Lab
+    private ColorEnum colorEnum;
 
-   public String getColor(){
-        return this.color;
-    } //Getter method for part 1 of Lab
+    ColorfulThing(ColorEnum colorEnum){
+        this.colorEnum = colorEnum;
+    }
+
+    public enum ColorEnum {RED, BLUE, GREEN}
+
+    public ColorEnum getColor(){
+        return this.colorEnum;
+    }
 
 }
 
